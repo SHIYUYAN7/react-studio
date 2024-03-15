@@ -14,12 +14,8 @@
     }
 
     .cart {
-        /* margin-top: 2em; */
-        /* width: 25%; */
-        position: fixed;
-        right: 0;
-        z-index: 10;
-        margin-right: 100px;
+        margin-top: 2em;
+        width: 25%;
     }
 
 }
