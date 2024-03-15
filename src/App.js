@@ -56,25 +56,32 @@ function App() {
     <div className="App">
       <h1>My Bakery</h1>
 
-      {bakeryData.map((item, index) => ( // map bakeryData to BakeryItem components
-        <BakeryItem key={item.name} item={item} addToCart={addToCart} />
-      ))}
-
-      <div className="cart">
-        <h2>My Cart</h2>
-        <ul>
-          {cart.map((item, index) => (
-            <li key={index}>
-              {item.quantity}x {item.name} - ${item.price.toFixed(2)}
-              <button className="cartButton" onClick={() => removeFromCart(item.name)}>Remove</button>
-            </li>
+      <div className="container">
+        <div className="bakeryCard">
+          {bakeryData.map((item, index) => ( // map bakeryData to BakeryItem components
+            <BakeryItem key={item.name} item={item} addToCart={addToCart} />
           ))}
-        </ul>
-        <h3>
-          Total: $
-          {cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
-        </h3>
+        </div>
+
+        <div className="cart">
+          <h2>My Cart</h2>
+          <ul>
+            {cart.map((item, index) => (
+              <li key={index}>
+                {item.quantity}x {item.name} - ${item.price.toFixed(2)}
+                <button className="cartButton" onClick={() => removeFromCart(item.name)}>Remove</button>
+              </li>
+            ))}
+          </ul>
+          <h3>
+            Total: $
+            {cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)}
+          </h3>
+        </div>
       </div>
+
+
+      
     </div>
   );
 }
